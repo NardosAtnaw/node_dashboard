@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d216623"],{c1dc:function(a,c,e){"use strict";e.r(c);var t=function(){var a=this,c=a.$createElement,e=a._self._c||c;return e("v-row",[e("v-col",{attrs:{cols:"12"}},[e("schedule-datatable")],1)],1)},n=[],l=(e("bc3a"),{}),o=l,s=e("2877"),d=e("6544"),r=e.n(d),u=e("62ad"),w=e("0fd9"),i=Object(s["a"])(o,t,n,!1,null,"28d93637",null);c["default"]=i.exports;r()(i,{VCol:u["a"],VRow:w["a"]})}}]);
+//# sourceMappingURL=chunk-2d216623.2aa2f34f.js.map
