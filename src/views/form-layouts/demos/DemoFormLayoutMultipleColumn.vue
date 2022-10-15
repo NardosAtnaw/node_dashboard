@@ -127,7 +127,7 @@ export default {
   methods: {
     async submitsch() {
       await axios
-        .post('https://www.beyonddancers.com/schedule', {
+        .post('https://www.beyonddancers.com/admin/schedule/', {
           form: this.form,
         })
         .then(res => {
