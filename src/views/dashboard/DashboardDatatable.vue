@@ -71,7 +71,7 @@ export default {
     }
   },
   async mounted() {
-    const res = await axios.get('http://localhost:3001/register')
+    const res = await axios.get('https://www.beyonddancers.com/register')
 
     this.data = res.data
   },
