@@ -3,13 +3,14 @@
     <v-col cols="12">
       <schedule-datatable></schedule-datatable>
     </v-col>
-  </v-row>  
+  </v-row>
 </template>
 
 <script>
 import axios from 'axios'
+
 export default {
-  
+
 }
 </script>
 

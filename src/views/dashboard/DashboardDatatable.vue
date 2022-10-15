@@ -1,7 +1,13 @@
 <template>
   <v-card>
     <!-- {{ data }} -->
-    <v-data-table :headers="headers" :items="data" class="table-rounded" hide-default-footer disable-sort>
+    <v-data-table
+      :headers="headers"
+      :items="data"
+      class="table-rounded"
+      hide-default-footer
+      disable-sort
+    >
       <!-- name -->
       <!-- <template #[`item.full_name`]="{ item }">
         <div class="d-flex flex-column">
@@ -23,6 +29,7 @@
 
 <script>
 import { mdiSquareEditOutline, mdiDotsVertical } from '@mdi/js'
+
 // import data from './datatable-data'
 import axios from 'axios'
 import { onMounted, reactive, ref } from '@vue/composition-api'

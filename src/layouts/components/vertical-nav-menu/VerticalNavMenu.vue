@@ -10,7 +10,10 @@
   >
     <!-- Navigation Header -->
     <div class="vertical-nav-header d-flex items-center ps-6 pe-5 pt-5 pb-2">
-      <router-link to="/" class="d-flex align-center text-decoration-none">
+      <router-link
+        to="/"
+        class="d-flex align-center text-decoration-none"
+      >
         <v-img
           :src="require('@/assets/images/logos/logopng.png')"
           max-height="200px"
@@ -27,9 +30,21 @@
     </div>
 
     <!-- Navigation Items -->
-    <v-list expand shaped class="vertical-nav-menu-items pr-5">
-      <nav-menu-link title="Dashboard" :to="{ name: 'dashboard' }" :icon="icons.mdiHomeOutline"></nav-menu-link>
-      <nav-menu-link title="Setup Schedule" :to="{ name: 'form-layouts' }" :icon="icons.mdiFormSelect"></nav-menu-link>
+    <v-list
+      expand
+      shaped
+      class="vertical-nav-menu-items pr-5"
+    >
+      <nav-menu-link
+        title="Dashboard"
+        :to="{ name: 'dashboard' }"
+        :icon="icons.mdiHomeOutline"
+      ></nav-menu-link>
+      <nav-menu-link
+        title="Setup Schedule"
+        :to="{ name: 'form-layouts' }"
+        :icon="icons.mdiFormSelect"
+      ></nav-menu-link>
 
       <!-- <nav-menu-link title="View Schedule" :to="{ name: 'view-schedule' }" :icon="icons.mdiTable"></nav-menu-link> -->
       <!-- <nav-menu-link title="View Schedule" :to="{ name: 'schedule' }" :icon="icons.mdiTable"></nav-menu-link>

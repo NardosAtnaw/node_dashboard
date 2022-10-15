@@ -2,26 +2,65 @@
   <v-form class="multi-col-validation">
     <v-row>
       <v-col cols="12">
-        <v-select v-model="form.dayWeek" :items="days" label="Select Day of Schedule"></v-select>
+        <v-select
+          v-model="form.dayWeek"
+          :items="days"
+          label="Select Day of Schedule"
+        ></v-select>
       </v-col>
-      <v-col cols="12" md="6">
+      <v-col
+        cols="12"
+        md="6"
+      >
         <h4>Class Start Time:</h4>
-        <v-time-picker v-model="start" :max="end" format="ampm"></v-time-picker>
+        <v-time-picker
+          v-model="start"
+          :max="end"
+          format="ampm"
+        ></v-time-picker>
       </v-col>
-      <v-col cols="12" md="6">
+      <v-col
+        cols="12"
+        md="6"
+      >
         <h4>Class End Time:</h4>
-        <v-time-picker v-model="end" :min="start" format="ampm"></v-time-picker>
+        <v-time-picker
+          v-model="end"
+          :min="start"
+          format="ampm"
+        ></v-time-picker>
       </v-col>
 
-      <v-col cols="12" md="6">
-        <v-text-field v-model="form.className" label="Class Name" placeholder="Jazz,Ballet, Takewando "></v-text-field>
+      <v-col
+        cols="12"
+        md="6"
+      >
+        <v-text-field
+          v-model="form.className"
+          label="Class Name"
+          placeholder="Jazz,Ballet, Takewando "
+        ></v-text-field>
       </v-col>
 
-      <v-col cols="12" md="6">
-        <v-text-field v-model="form.studioNum" label="Studio Number" placeholder="1,2,3 "></v-text-field>
+      <v-col
+        cols="12"
+        md="6"
+      >
+        <v-text-field
+          v-model="form.studioNum"
+          label="Studio Number"
+          placeholder="1,2,3 "
+        ></v-text-field>
       </v-col>
-      <v-col cols="12" md="6">
-        <v-select v-model="form.ageGroup" :items="age" label="Select Age Range"></v-select>
+      <v-col
+        cols="12"
+        md="6"
+      >
+        <v-select
+          v-model="form.ageGroup"
+          :items="age"
+          label="Select Age Range"
+        ></v-select>
       </v-col>
 
       <v-col cols="12">
@@ -34,7 +73,10 @@
           hint="Hint text"
         ></v-textarea>
       </v-col>
-      <v-col cols="12" md="6">
+      <v-col
+        cols="12"
+        md="6"
+      >
         <v-menu
           v-model="menu2"
           :close-on-content-click="false"
@@ -44,12 +86,24 @@
           min-width="auto"
         >
           <template v-slot:activator="{ on, attrs }">
-            <v-text-field v-model="date" label="Select Start Date" readonly v-bind="attrs" v-on="on"></v-text-field>
+            <v-text-field
+              v-model="date"
+              label="Select Start Date"
+              readonly
+              v-bind="attrs"
+              v-on="on"
+            ></v-text-field>
           </template>
-          <v-date-picker v-model="date" @input="menu2 = false"></v-date-picker>
+          <v-date-picker
+            v-model="date"
+            @input="menu2 = false"
+          ></v-date-picker>
         </v-menu>
       </v-col>
-      <v-col cols="12" md="6">
+      <v-col
+        cols="12"
+        md="6"
+      >
         <v-menu
           ref="endMenu"
           v-model="endMenu"
@@ -68,19 +122,37 @@
               v-on="on"
             ></v-text-field>
           </template>
-          <v-date-picker v-model="form.endDate" no-title scrollable>
+          <v-date-picker
+            v-model="form.endDate"
+            no-title
+            scrollable
+          >
             <v-spacer></v-spacer>
-            <v-btn text color="primary" @click="endMenu = false">
+            <v-btn
+              text
+              color="primary"
+              @click="endMenu = false"
+            >
               Cancel
             </v-btn>
-            <v-btn text color="primary" @click="$refs.endMenu.save(form.endDate)">
+            <v-btn
+              text
+              color="primary"
+              @click="$refs.endMenu.save(form.endDate)"
+            >
               OK
             </v-btn>
           </v-date-picker>
         </v-menu>
       </v-col>
-      <v-col class="margin-btn" cols="12">
-        <v-btn color="primary" @click.prevent="submitsch">
+      <v-col
+        class="margin-btn"
+        cols="12"
+      >
+        <v-btn
+          color="primary"
+          @click.prevent="submitsch"
+        >
           Submit
         </v-btn>
       </v-col>
@@ -90,6 +162,7 @@
 
 <script>
 import axios from 'axios'
+
 export default {
   data() {
     return {
@@ -124,6 +197,16 @@ export default {
       modal1: false,
     }
   },
+  watch: {
+    start(value) {
+      this.form.sTime = value
+      console.log('form', this.form)
+    },
+    end(value) {
+      this.form.eTime = value
+      console.log('end', this.form)
+    },
+  },
   methods: {
     async submitsch() {
       await axios
@@ -135,16 +218,6 @@ export default {
         })
 
       // console.log(this.form.sTime)
-    },
-  },
-  watch: {
-    start(value) {
-      this.form.sTime = value
-      console.log('form', this.form)
-    },
-    end(value) {
-      this.form.eTime = value
-      console.log('end', this.form)
     },
   },
 }

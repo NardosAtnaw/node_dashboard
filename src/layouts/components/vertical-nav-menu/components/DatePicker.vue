@@ -1,7 +1,13 @@
 <template>
   <v-container grid-list-md>
-    <v-layout row wrap>
-      <v-flex xs12 lg6>
+    <v-layout
+      row
+      wrap
+    >
+      <v-flex
+        xs12
+        lg6
+      >
         <v-menu
           ref="menu1"
           v-model="menu1"
@@ -24,7 +30,11 @@
               v-on="on"
             ></v-text-field>
           </template>
-          <v-date-picker v-model="dateCopy" no-title @input="updateDate(date)">
+          <v-date-picker
+            v-model="dateCopy"
+            no-title
+            @input="updateDate(date)"
+          >
           </v-date-picker>
         </v-menu>
       </v-flex>
@@ -35,6 +45,9 @@
 <script>
 export default {
   name: 'DatePicker',
+  props: {
+    date: String,
+  },
   data() {
     return {
       dateFormatted: this.formatDate(new Date().toISOString().substr(0, 10)),
@@ -52,21 +65,20 @@ export default {
       if (!date) return null
 
       const [year, month, day] = date.split('-')
+
       return `${month}/${day}/${year}`
     },
     parseDate(date) {
       if (!date) return null
 
       const [month, day, year] = date.split('/')
+
       return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
     },
     updateDate(date) {
       this.menu1 = false
       this.$emit('update:date', this.dateCopy)
     },
-  },
-  props: {
-    date: String,
   },
 }
 </script>
